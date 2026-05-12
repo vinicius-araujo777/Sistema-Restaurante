@@ -1,4 +1,5 @@
-<?php 
+<?php
+require_once "../conexao.php";
 require_once "funçoes.php";
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];

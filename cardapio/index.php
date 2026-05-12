@@ -1,3 +1,10 @@
+<?php 
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -30,8 +37,8 @@
                     <td><?php echo $prato->categoria; ?></td>
                     <td><?php echo $prato->preco; ?></td>
                     <td>
+                        <a href="excluir.php?id=<?php echo $prato->id; ?>">Deletar</a>
                         <a href="editar.php?id=<?php echo $prato->id; ?>">Editar</a>
-                        <a href="excluir.php?id=<?php echo $prato->id; ?>">Excluir</a>
                     </td>
                 </tr>
             <?php } ?>

@@ -16,6 +16,13 @@ function adicionarPrato($con, $nome, $preco, $descricao, $categoria) {
     return $stmt->execute();
 }
 
+function obterPrato($con, $id) {
+    $stmt = $con->prepare("SELECT * FROM cardapio WHERE id = :id");
+    $stmt->bindValue(':id', $id);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_OBJ);
+}
+
 function excluirPrato($con, $id) {
     $stmt = $con->prepare("DELETE FROM cardapio WHERE id = :id");
     $stmt->bindValue(':id', $id);
