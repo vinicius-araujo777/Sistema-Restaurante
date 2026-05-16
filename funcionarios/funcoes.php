@@ -22,4 +22,18 @@ function obterFuncionario($con,$id){
     return $stmt->fetch(PDO::FETCH_OBJ);
 }
 
+function excluirFuncionario($con,$id){
+    $stmt = $con->prepare("DELETE FROM funcionarios WHERE id = :id");
+    $stmt->bindValue(":id",$id);
+    return $stmt->execute();
+}
+
+function atualizarFuncionario($con,$id,$nome, $cargo, $salario){
+    $stmt = $con->prepare("UPDATE funcionarios SET nome = :nome, cargo = :cargo, salario = :salario WHERE id = :id");
+    $stmt->bindValue(":nome",$nome);
+    $stmt->bindValue(":cargo",$cargo);
+    $stmt->bindValue(":salario",$salario);
+    $stmt->bindValue(":id",$id);
+    return $stmt->execute();
+}
 ?>
