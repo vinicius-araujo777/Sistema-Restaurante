@@ -33,35 +33,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div>
             <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Nome do Prato</label>
             <input type="text" name="nome" placeholder="Ex: Picanha na Brasa" required
-                class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-800 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition">
+            class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-800 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition">
         </div>
 
         <div>
             <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Descrição</label>
             <input type="text" name="descricao" placeholder="Breve descrição do prato" required
-                class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-800 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition">
+            class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-800 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition">
         </div>
 
         <div class="grid grid-cols-2 gap-4">
             <div>
                 <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Categoria</label>
                 <input type="text" name="categoria" placeholder="Ex: Grelhados" required
-                    class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-800 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition">
+                class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-800 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition">
             </div>
             <div>
                 <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Preço (R$)</label>
                 <input type="number" step="0.01" name="preco" placeholder="0,00" required
-                    class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-800 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition">
+                class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-800 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition">
             </div>
         </div>
 
         <div class="flex gap-3 pt-2">
             <button type="submit"
-                class="bg-orange-500 hover:bg-orange-600 text-white font-medium text-sm px-6 py-2.5 rounded-lg transition">
+            class="bg-orange-500 hover:bg-orange-600 text-white font-medium text-sm px-6 py-2.5 rounded-lg transition">
                 Adicionar
             </button>
+            
             <a href="index.php"
-                class="border border-gray-200 text-gray-500 hover:bg-gray-50 font-medium text-sm px-6 py-2.5 rounded-lg transition">
+            class="border border-gray-200 text-gray-500 hover:bg-gray-50 font-medium text-sm px-6 py-2.5 rounded-lg transition">
                 Cancelar
             </a>
         </div>
