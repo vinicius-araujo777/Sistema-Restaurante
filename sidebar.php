@@ -19,6 +19,7 @@
         <a href="/Sistema-Restaurante/index.php" class="text-white/80 hover:text-white hover:bg-white/20 px-3 py-2 rounded-lg text-sm transition">Início</a>
         <a href="/Sistema-Restaurante/cardapio/index.php" class="text-white/80 hover:text-white hover:bg-white/20 px-3 py-2 rounded-lg text-sm transition">Cardápio</a>
         <a href="/Sistema-Restaurante/funcionarios/index.php" class="text-white/80 hover:text-white hover:bg-white/20 px-3 py-2 rounded-lg text-sm transition">Funcionários</a>
+        <a href="/Sistema-Restaurante/mesas/index.php" class="text-white/80 hover:text-white hover:bg-white/20 px-3 py-2 rounded-lg text-sm transition">Mesas</a>
     </nav>
 </aside>
 
