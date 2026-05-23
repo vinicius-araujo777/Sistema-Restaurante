@@ -16,7 +16,7 @@
                 <th class="pb-2 px-3 font-medium">Número</th>
                 <th class="pb-2 px-3 font-medium">Capacidade</th>
                 <th class="pb-2 px-3 font-medium">Status</th>
-                <th class="pb-2 px-3"></th>
+                <th class="pb-2 px-3 font-medium">Opções</th>
             </tr>
         </thead>
         <tbody class="divide-y divide-gray-100">

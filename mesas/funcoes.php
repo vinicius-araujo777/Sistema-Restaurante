@@ -18,7 +18,7 @@ function obterMesa($con, $id) {
     $stmt = $con->prepare("SELECT * FROM mesas WHERE id = :id");
     $stmt->bindValue(":id", $id);
     $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_OBJ);
+    return $stmt->fetch(PDO::FETCH_OBJ);
 }
 
 function excluirMesa($con, $id) {
@@ -27,16 +27,10 @@ function excluirMesa($con, $id) {
     return $stmt->execute();
 }
 
-function atualizarMesa($con, $id, $numero, $capacidade) {
-    $stmt = $con->prepare("UPDATE mesas SET numero = :numero, capacidade = :capacidade WHERE id = :id");
+function atualizarMesa($con, $id, $numero, $capacidade, $status) {
+    $stmt = $con->prepare("UPDATE mesas SET numero = :numero, capacidade = :capacidade, status = :status WHERE id = :id");
     $stmt->bindValue(":numero", $numero);
     $stmt->bindValue(":capacidade", $capacidade);
-    $stmt->bindValue(":id", $id);
-    return $stmt->execute();
-}
-
-function atualizarStatus($con, $id, $status) {
-    $stmt = $con->prepare("UPDATE mesas SET status = :status WHERE id = :id");
     $stmt->bindValue(":status", $status);
     $stmt->bindValue(":id", $id);
     return $stmt->execute();
