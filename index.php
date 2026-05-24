@@ -1,3 +1,4 @@
+<?php require_once "protege.php"; ?>
 <?php include 'sidebar.php'; ?>
 
 <div class="mb-6">
