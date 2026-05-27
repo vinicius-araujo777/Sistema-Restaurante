@@ -50,9 +50,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <div class="w-full max-w-sm">
 
         <div class="text-center mb-8">
-            <span class="text-4xl">🍽</span>
-            <h1 class="text-2xl font-bold text-gray-900 mt-2">Hambre</h1>
-            <p class="text-sm text-gray-500 mt-1">Criar nova conta</p>
+            <img src="/Sistema-Restaurante/assets/LogoRest.png" alt="Logo Hambre" class="w-24 h-24 object-contain rounded-xl mb-1 mx-auto">
+            <p class="text-base text-gray-500">Criar nova conta</p>
         </div>
 
         <div class="bg-white rounded-xl border border-gray-200 p-8">
