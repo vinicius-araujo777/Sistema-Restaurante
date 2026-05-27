@@ -46,8 +46,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         <div>
             <label  class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Cargo do funcionario</label>
-            <input type="text" name="cargo" value="<?= htmlspecialchars($funcionario->cargo) ?>" required
-            class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-800 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition">
+            <select name="cargo" required
+                class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-800 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition">
+                <option value="">Selecione um cargo</option>
+                <option value="Garçom" <?= $funcionario->cargo == 'Garçom' ? 'selected' : '' ?> >Garçom</option>
+                <option value="Chef" <?= $funcionario->cargo == 'Chef' ? 'selected' : '' ?> >Chef</option>
+                <option value="Cozinheiro" <?= $funcionario->cargo == 'Cozinheiro' ? 'selected' : '' ?> >Cozinheiro</option>
+                <option value="Atendente" <?= $funcionario->cargo == 'Atendente' ? 'selected' : '' ?> >Atendente</option>
+                <option value="Gerente" <?= $funcionario->cargo == 'Gerente' ? 'selected' : '' ?> >Gerente</option>
+                <option value="Caixa" <?= $funcionario->cargo == 'Caixa' ? 'selected' : '' ?> >Caixa</option>
+                <option value="Auxiliar de Cozinha" <?= $funcionario->cargo == 'Auxiliar de Cozinha' ? 'selected' : '' ?> >Auxiliar de Cozinha</option>
+                <option value="Barman" <?= $funcionario->cargo == 'Barman' ? 'selected' : '' ?> >Barman</option>
+                <option value="Limpeza" <?= $funcionario->cargo == 'Limpeza' ? 'selected' : '' ?> >Limpeza</option>
+            </select>
         </div>
 
         <div>
