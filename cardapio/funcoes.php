@@ -1,6 +1,6 @@
 <?php 
 
-require_once "../conexao.php";
+require_once __DIR__ . "/../conexao.php";
 
 function listarPratos($con) {
     $stmt = $con->query("SELECT * FROM cardapio");

@@ -1,5 +1,5 @@
 <?php 
-require_once '../conexao.php';
+require_once __DIR__ . "/../conexao.php";
 
 function listarFuncionarios($con) {
     $stmt = $con->prepare("SELECT * FROM funcionarios");
