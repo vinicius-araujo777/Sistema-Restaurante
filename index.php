@@ -30,22 +30,22 @@ $pratosCaros = $stmt->fetchAll(PDO::FETCH_OBJ);
     <div class="bg-white rounded-xl border border-gray-200 p-5">
         <p class="text-sm text-gray-500">Total de mesas</p>
         <p class="text-3xl font-bold text-gray-900 mt-1"><?php echo $totalMesas; ?></p>
-        <a href="/Sistema-Restaurante/mesas/index.php" class="text-xs text-orange-500 hover:underline mt-1 inline-block">Ver mesas →</a>
+        <a href="/mesas/index.php" class="text-xs text-orange-500 hover:underline mt-1 inline-block">Ver mesas →</a>
     </div>
     <div class="bg-white rounded-xl border border-gray-200 p-5">
         <p class="text-sm text-gray-500">Total de mesas disponiveis</p>
         <p class="text-3xl font-bold text-gray-900 mt-1"><?php echo $mesasDisponiveis; ?></p>
-        <a href="/Sistema-Restaurante/mesas/index.php" class="text-xs text-orange-500 hover:underline mt-1 inline-block">Status mesa →</a>
+        <a href="/mesas/index.php" class="text-xs text-orange-500 hover:underline mt-1 inline-block">Status mesa →</a>
     </div>
     <div class="bg-white rounded-xl border border-gray-200 p-5">
         <p class="text-sm text-gray-500">Funcionários Ativos</p>
         <p class="text-3xl font-bold text-gray-900 mt-1"><?php echo $totalFuncionarios; ?></p>
-        <a href="/Sistema-Restaurante/funcionarios/index.php" class="text-xs text-orange-500 hover:underline mt-1 inline-block">Ver funcionários →</a>
+        <a href="/funcionarios/index.php" class="text-xs text-orange-500 hover:underline mt-1 inline-block">Ver funcionários →</a>
     </div>
     <div class="bg-white rounded-xl border border-gray-200 p-5">
         <p class="text-sm text-gray-500">Pratos Cadastrados</p>
         <p class="text-3xl font-bold text-gray-900 mt-1"><?php echo $totalPratos; ?></p>
-        <a href="/Sistema-Restaurante/cardapio/index.php" class="text-xs text-orange-500 hover:underline mt-1 inline-block">Ver pratos →</a>
+        <a href="/cardapio/index.php" class="text-xs text-orange-500 hover:underline mt-1 inline-block">Ver pratos →</a>
     </div>
 </div>
 

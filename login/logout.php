@@ -1,5 +1,5 @@
 <?php
 session_start();
 session_destroy();
-header("Location: /Sistema-Restaurante/login/index.php");
+header("Location: /login/index.php");
 exit;

@@ -1,6 +1,6 @@
 <?php
 session_start();
 if(!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
-    header("Location: /Sistema-Restaurante/login/index.php");
+    header("Location: /login/index.php");
     exit;
 }

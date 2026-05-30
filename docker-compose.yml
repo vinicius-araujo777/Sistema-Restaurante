@@ -1,0 +1,40 @@
+services:
+  app:
+    build: .
+    container_name: app_php
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+
+  # Container do Banco de Dados
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: hambre
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  # Container do phpMyAdmin (Interface)
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: pma_interface
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8090:80"
+    environment:
+      PMA_HOST: db # Nome do serviço acima para eles conversarem
+      PMA_PORT: 3306
+
+volumes:
+  mysql_data:
