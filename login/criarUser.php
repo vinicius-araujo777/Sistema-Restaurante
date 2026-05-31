@@ -1,7 +1,8 @@
 <?php
 require_once "../conexao.php";
 
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $acesso = $_POST['acesso'];
     $nome = $_POST['nome'];
     $email = $_POST['email'] ? $_POST['email'] : null;
     $telefone = $_POST['telefone'] ? $_POST['telefone'] : null;
@@ -16,23 +17,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         return $stmt->execute();
     }
 
-    if(!empty($_POST['email'])) {
-        $stmt = $con->prepare("SELECT id FROM registros WHERE email = :email");
-        $stmt->bindValue(":email", $_POST['email']);
-        $stmt->execute();
-        if($stmt->fetch()) {
-            $erro = "Este email já está cadastrado.";
-        }
+    if($acesso !== "hambre2026") {
+        $erro = "Código de acesso inválido.";
     }
-
-    if(empty($erro)) {
+    else {
         if(criarConta($con, $nome, $email, $telefone, $senha)) {
             $sucesso = "Conta criada com sucesso!";
         } else {
             $erro = "Erro ao criar conta. Tente novamente.";
         }
     }
-
+    
 }
 ?>
 
@@ -65,6 +60,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             <?php endif; ?>
 
             <form action="" method="post" class="space-y-4">
+                <div class="text-center text-sm text-gray-500 mb-8">
+                    <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Senha de acesso</label>
+                    <input type="password" name="acesso" placeholder="••••••••" required
+                        class="w-full border bg-gray-100 border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-400 outline-none focus:border-gray-200 focus:ring-0 transition">
+                </div>
+
                 <div>
                     <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Nome</label>
                     <input type="text" name="nome" placeholder="seu nome" required
@@ -72,12 +73,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 </div>
                 <div>
                     <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Email</label>
-                    <input type="email" name="email" placeholder="seu@email.com"
+                    <input type="email" name="email" placeholder="seu@email.com (opcional)"
                         class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-800 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition">
                 </div>
                 <div>
                     <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Telefone</label>
-                    <input type="text" name="telefone" placeholder="(00) 00000-0000" maxlength="11"
+                    <input type="text" name="telefone" placeholder="(00) 00000-0000 (opcional)" maxlength="11"
                         class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-800 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition">
                 </div>
                 <div>
