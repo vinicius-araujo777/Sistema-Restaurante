@@ -64,6 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <option value="Acompanhamento" <?= $prato->categoria == 'Acompanhamento' ? 'selected' : '' ?>>Acompanhamento</option>
                     <option value="Salada" <?= $prato->categoria == 'Salada' ? 'selected' : '' ?>>Salada</option>
                     <option value="Sobremesa" <?= $prato->categoria == 'Sobremesa' ? 'selected' : '' ?>>Sobremesa</option>
+                    <option value="Bebida" <?= $prato->categoria == 'Bebida' ? 'selected' : '' ?>>Bebida</option>
                 </select>
             </div>
             <div>

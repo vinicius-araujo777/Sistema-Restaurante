@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Tempo de geração: 30/05/2026 às 20:03
+-- Tempo de geração: 02/06/2026 às 00:21
 -- Versão do servidor: 8.0.46
 -- Versão do PHP: 8.3.31
 
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cache` (
-  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `expiration` bigint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -40,8 +40,8 @@ CREATE TABLE `cache` (
 --
 
 CREATE TABLE `cache_locks` (
-  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `owner` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `owner` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `expiration` bigint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -53,9 +53,9 @@ CREATE TABLE `cache_locks` (
 
 CREATE TABLE `cardapio` (
   `id` int NOT NULL,
-  `nome` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `descricao` text COLLATE utf8mb4_general_ci,
-  `categoria` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `nome` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `descricao` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `categoria` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `preco` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -68,7 +68,11 @@ INSERT INTO `cardapio` (`id`, `nome`, `descricao`, `categoria`, `preco`) VALUES
 (12, 'picanha assada', 'picanha ao molho assada', 'Prato Principal', 56.89),
 (14, 'Patinho ao molho', 'Patinho bovino cozido', 'Prato Principal', 32.30),
 (15, 'fricassê', 'frango desfiado com creme de milho', 'Acompanhamento', 23.89),
-(16, 'Mousse de guarana', 'gelato de pó de guarana e mel ', 'Sobremesa', 25.00);
+(16, 'Mousse de guarana', 'gelato de pó de guarana e mel ', 'Sobremesa', 25.00),
+(17, 'Salada michelã', 'tomate, couve, repolho e beterraba refogada com azeite', 'Salada', 22.65),
+(18, 'Baião cremoso', 'Baião com queijo cremoso', 'Acompanhamento', 26.12),
+(19, 'Cajuina', 'bebida não alcoólica produzida a partir do suco de caju clarificado', 'Bebida', 12.29),
+(20, 'Vinho tinto Guarda', 'Vinho com envelhecimento prolongado, possui alta acidez', 'Bebida', 72.52);
 
 -- --------------------------------------------------------
 
@@ -78,11 +82,11 @@ INSERT INTO `cardapio` (`id`, `nome`, `descricao`, `categoria`, `preco`) VALUES
 
 CREATE TABLE `failed_jobs` (
   `id` bigint UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -94,8 +98,8 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `funcionarios` (
   `id` int NOT NULL,
-  `nome` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `cargo` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nome` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `cargo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `salario` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -104,13 +108,14 @@ CREATE TABLE `funcionarios` (
 --
 
 INSERT INTO `funcionarios` (`id`, `nome`, `cargo`, `salario`) VALUES
-(1, 'Osvaldo', 'Garçom', 2300.00),
-(2, 'Vinicius', 'Cozinheiro', 2500.00),
-(4, 'Elineide', 'Chef', 4780.00),
+(1, 'Osvaldo', 'Garçom', 2000.00),
+(2, 'Vinicius', 'Cozinheiro', 2300.00),
+(4, 'Elineide', 'Chef', 2780.00),
 (6, 'Cesar', 'Caixa', 2100.00),
 (7, 'Maria', 'Cozinheiro', 2500.00),
 (8, 'Sida', 'Limpeza', 1860.00),
-(9, 'Jorge', 'Barman', 2000.00);
+(9, 'Jorge', 'Barman', 2000.00),
+(10, 'Vera', 'Atendente', 1600.00);
 
 -- --------------------------------------------------------
 
@@ -120,8 +125,8 @@ INSERT INTO `funcionarios` (`id`, `nome`, `cargo`, `salario`) VALUES
 
 CREATE TABLE `jobs` (
   `id` bigint UNSIGNED NOT NULL,
-  `queue` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `attempts` smallint UNSIGNED NOT NULL,
   `reserved_at` int UNSIGNED DEFAULT NULL,
   `available_at` int UNSIGNED NOT NULL,
@@ -135,13 +140,13 @@ CREATE TABLE `jobs` (
 --
 
 CREATE TABLE `job_batches` (
-  `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `total_jobs` int NOT NULL,
   `pending_jobs` int NOT NULL,
   `failed_jobs` int NOT NULL,
-  `failed_job_ids` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci,
+  `failed_job_ids` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `options` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `cancelled_at` int DEFAULT NULL,
   `created_at` int NOT NULL,
   `finished_at` int DEFAULT NULL
@@ -157,7 +162,7 @@ CREATE TABLE `mesas` (
   `id` int NOT NULL,
   `numero` int NOT NULL,
   `capacidade` int NOT NULL,
-  `status` varchar(20) COLLATE utf8mb4_general_ci DEFAULT 'Disponível'
+  `status` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Disponível'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -169,7 +174,8 @@ INSERT INTO `mesas` (`id`, `numero`, `capacidade`, `status`) VALUES
 (2, 3, 8, 'Ocupada'),
 (5, 6, 10, 'Disponível'),
 (6, 4, 4, 'Reservada'),
-(7, 8, 12, 'Disponível');
+(7, 8, 12, 'Disponível'),
+(8, 9, 6, 'Disponível');
 
 -- --------------------------------------------------------
 
@@ -179,7 +185,7 @@ INSERT INTO `mesas` (`id`, `numero`, `capacidade`, `status`) VALUES
 
 CREATE TABLE `migrations` (
   `id` int UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -200,8 +206,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `password_reset_tokens` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -213,10 +219,10 @@ CREATE TABLE `password_reset_tokens` (
 
 CREATE TABLE `registros` (
   `id` bigint UNSIGNED NOT NULL,
-  `nome` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `telefone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `senha` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nome` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `telefone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `senha` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -230,7 +236,9 @@ INSERT INTO `registros` (`id`, `nome`, `telefone`, `email`, `senha`, `created_at
 (5, 'vinicius', '88992075688', 'vr55@gmail.com', '$2y$10$EAPwXB4X1qMvJ5d/0WjTLuLd5rNKCaATDlFszGr.Vk.GA0zJjyAL2', NULL, NULL),
 (8, 'maria', NULL, NULL, '$2y$10$GyaRfWsm5iocsWtMuD/QAeuMsJazhbusYn61HBTexMAbQ7Zf/nF0y', NULL, NULL),
 (9, 'maria', NULL, NULL, '$2y$10$2Wf7CrYmHL4FMf2q7FDxn.iHSJJbCbA.XULM2pB3Nv9zNaum1Gx86', NULL, NULL),
-(10, 'v7', NULL, NULL, '$2y$10$OkRg4ABPSuBYuia2wmNc5u5mrIArvT4gj9MwL9MKg.NdhkTerh.UW', NULL, NULL);
+(10, 'v7', NULL, NULL, '$2y$10$OkRg4ABPSuBYuia2wmNc5u5mrIArvT4gj9MwL9MKg.NdhkTerh.UW', NULL, NULL),
+(11, 'jj', NULL, NULL, '$2y$10$Ghil6684KW0/a29CypCXS.VWjm9k2yhhvplyV/lX9c2ttjnv3bAwi', NULL, NULL),
+(12, 'adm', NULL, NULL, '$2y$10$WOliq.nENLKuymhai17qoOaO3jEUk0CMoqxsvCm11KmJv5s6FWaUW', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -239,11 +247,11 @@ INSERT INTO `registros` (`id`, `nome`, `telefone`, `email`, `senha`, `created_at
 --
 
 CREATE TABLE `sessions` (
-  `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint UNSIGNED DEFAULT NULL,
-  `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_agent` text COLLATE utf8mb4_unicode_ci,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ip_address` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_agent` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_activity` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -262,11 +270,11 @@ INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, 
 
 CREATE TABLE `users` (
   `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -369,7 +377,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de tabela `cardapio`
 --
 ALTER TABLE `cardapio`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de tabela `failed_jobs`
@@ -381,7 +389,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de tabela `funcionarios`
 --
 ALTER TABLE `funcionarios`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `jobs`
@@ -393,7 +401,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT de tabela `mesas`
 --
 ALTER TABLE `mesas`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `migrations`
@@ -405,7 +413,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de tabela `registros`
 --
 ALTER TABLE `registros`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `users`

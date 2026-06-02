@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <option value="Acompanhamento">Acompanhamento</option>
                     <option value="Salada">Salada</option>
                     <option value="Sobremesa">Sobremesa</option>
+                    <option value="Bebida">Bebida</option>
                 </select>
             </div>
             <div>
