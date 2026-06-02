@@ -27,7 +27,7 @@
                 <td class="py-3 text-gray-400"> <?php echo $f->id ?></td>
                 <td class="py-3 text-gray-800 font-medium"><?php echo $f->nome ?></td>
                 <td class="py-3 text-gray-600"><?php echo $f->cargo ?></td>
-                <td class="py-3 text-gray-800 font-medium">R$ <?php echo $f->salario ?></td>
+                <td class="py-3 text-gray-800 font-medium">R$ <?php echo number_format($f->salario, 2, ',', '.') ?></td>
                 <td class="py-3">
                     <div class="flex gap-1">
                         <a href="editar.php?id=<?=  $f->id ?> " class="text-orange-500 hover:bg-orange-50 p-1.5 rounded-lg transition"> 

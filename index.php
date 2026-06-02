@@ -15,8 +15,17 @@ foreach (listarMesas($con) as $mesa) {
     }
 }
 
-$stmt = $con->query("SELECT * FROM cardapio ORDER BY preco DESC LIMIT 5");
-$pratosCaros = $stmt->fetchAll(PDO::FETCH_OBJ);
+function pratosCaros($con){
+    $stmt = $con->query("SELECT * FROM cardapio ORDER BY preco DESC LIMIT 5");
+    $pratosCaros = $stmt->fetchAll(PDO::FETCH_OBJ);
+    return $pratosCaros;
+}
+
+function calcularFolhaSalarial($con) {
+    $stmt = $con->query("SELECT SUM(salario) FROM funcionarios");
+    $total = $stmt->fetchColumn();
+    return $total;
+}
 ?>
 
 <?php include 'sidebar.php'; ?>
@@ -26,7 +35,7 @@ $pratosCaros = $stmt->fetchAll(PDO::FETCH_OBJ);
     <p class="text-sm text-gray-500">Visão geral do seu restaurante</p>
 </div>
 
-<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-8">
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 mb-8">
     <div class="bg-white rounded-xl border border-gray-200 p-5">
         <p class="text-sm text-gray-500">Total de mesas</p>
         <p class="text-3xl font-bold text-gray-900 mt-1"><?php echo $totalMesas; ?></p>
@@ -47,6 +56,11 @@ $pratosCaros = $stmt->fetchAll(PDO::FETCH_OBJ);
         <p class="text-3xl font-bold text-gray-900 mt-1"><?php echo $totalPratos; ?></p>
         <a href="/cardapio/index.php" class="text-xs text-orange-500 hover:underline mt-1 inline-block">Ver pratos →</a>
     </div>
+    <div class="bg-white rounded-xl border border-gray-200 p-5">
+        <p class="text-sm text-gray-500">Folha salarial</p>
+        <p class="text-3xl font-bold text-gray-900 mt-1">R$ <?php echo number_format(calcularFolhaSalarial($con), 2, ',', '.'); ?></p>
+        <a href="/funcionarios/index.php" class="text-xs text-orange-500 hover:underline mt-1 inline-block">Ver funcionários →</a>
+    </div>
 </div>
 
 <div class="bg-white rounded-xl border border-gray-200 p-6">
@@ -60,13 +74,13 @@ $pratosCaros = $stmt->fetchAll(PDO::FETCH_OBJ);
             </tr>
         </thead>
         <tbody class="divide-y divide-gray-100">
-            <?php foreach($pratosCaros as $i){ ?>
+            <?php foreach(pratosCaros($con) as $i): ?>
                 <tr>
                     <td class="py-3 text-gray-400 font-medium"> <?= $i->id ?> </td>
                     <td class="py-3 text-gray-800"> <?= $i->nome ?>  </td>
                     <td class="py-3 text-right text-gray-600"> R$ <?= number_format($i->preco, 2, ',', '.') ?>  </td>
                 </tr>
-            <?php } ?>
+            <?php endforeach ?>
         </tbody>
     </table>
 </div>
