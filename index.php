@@ -32,7 +32,7 @@ function calcularFolhaSalarial($con) {
 
 <div class="mb-6">
     <h1 class="text-2xl font-bold text-gray-900">Bem vindo(a), <?= $_SESSION['usuario'] ?>!</h1>
-    <p class="text-sm text-gray-500">Visão geral do seu restaurante</p>
+    <p class="text-sm text-gray-500">Monitoramento e gestão do seu restaurante</p>
 </div>
 
 <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 mb-8">

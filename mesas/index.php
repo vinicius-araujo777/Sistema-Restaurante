@@ -1,3 +1,4 @@
+<?php require_once "../protege.php"; ?>
 <?php $title = "Mesas"; ?>
 <?php require_once "../sidebar.php" ?>
 

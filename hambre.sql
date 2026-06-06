@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Tempo de geração: 02/06/2026 às 00:21
+-- Tempo de geração: 06/06/2026 às 13:49
 -- Versão do servidor: 8.0.46
 -- Versão do PHP: 8.3.31
 
@@ -71,7 +71,7 @@ INSERT INTO `cardapio` (`id`, `nome`, `descricao`, `categoria`, `preco`) VALUES
 (16, 'Mousse de guarana', 'gelato de pó de guarana e mel ', 'Sobremesa', 25.00),
 (17, 'Salada michelã', 'tomate, couve, repolho e beterraba refogada com azeite', 'Salada', 22.65),
 (18, 'Baião cremoso', 'Baião com queijo cremoso', 'Acompanhamento', 26.12),
-(19, 'Cajuina', 'bebida não alcoólica produzida a partir do suco de caju clarificado', 'Bebida', 12.29),
+(19, 'Vinho suave', 'Vinho suave adocicado', 'Bebida', 24.89),
 (20, 'Vinho tinto Guarda', 'Vinho com envelhecimento prolongado, possui alta acidez', 'Bebida', 72.52);
 
 -- --------------------------------------------------------
@@ -108,14 +108,15 @@ CREATE TABLE `funcionarios` (
 --
 
 INSERT INTO `funcionarios` (`id`, `nome`, `cargo`, `salario`) VALUES
-(1, 'Osvaldo', 'Garçom', 2000.00),
-(2, 'Vinicius', 'Cozinheiro', 2300.00),
-(4, 'Elineide', 'Chef', 2780.00),
-(6, 'Cesar', 'Caixa', 2100.00),
-(7, 'Maria', 'Cozinheiro', 2500.00),
-(8, 'Sida', 'Limpeza', 1860.00),
-(9, 'Jorge', 'Barman', 2000.00),
-(10, 'Vera', 'Atendente', 1600.00);
+(1, 'Fabio', 'Garçom', 1600.00),
+(2, 'Vinicius', 'Cozinheiro', 2000.00),
+(4, 'Elineide', 'Chef', 2700.00),
+(6, 'Cesar', 'Caixa', 1800.00),
+(7, 'Maria', 'Gerente', 2500.00),
+(8, 'Sida', 'Limpeza', 1850.00),
+(9, 'Jorge', 'Barman', 1800.00),
+(10, 'Vera', 'Auxiliar de Cozinha', 1900.00),
+(11, 'João', 'Atendente', 1550.00);
 
 -- --------------------------------------------------------
 
@@ -172,8 +173,8 @@ CREATE TABLE `mesas` (
 INSERT INTO `mesas` (`id`, `numero`, `capacidade`, `status`) VALUES
 (1, 1, 4, 'Ocupada'),
 (2, 3, 8, 'Ocupada'),
-(5, 6, 10, 'Disponível'),
-(6, 4, 4, 'Reservada'),
+(5, 4, 10, 'Disponível'),
+(6, 6, 4, 'Reservada'),
 (7, 8, 12, 'Disponível'),
 (8, 9, 6, 'Disponível');
 
@@ -234,10 +235,6 @@ CREATE TABLE `registros` (
 INSERT INTO `registros` (`id`, `nome`, `telefone`, `email`, `senha`, `created_at`, `updated_at`) VALUES
 (3, 'vini', '992075688', 'vini00@gmail.com', '$2y$10$rRkqL4oFyRMKSWXKkHCCquW/lbGiaS0dG2JuHP29XkB7LSUb4YkOe', NULL, NULL),
 (5, 'vinicius', '88992075688', 'vr55@gmail.com', '$2y$10$EAPwXB4X1qMvJ5d/0WjTLuLd5rNKCaATDlFszGr.Vk.GA0zJjyAL2', NULL, NULL),
-(8, 'maria', NULL, NULL, '$2y$10$GyaRfWsm5iocsWtMuD/QAeuMsJazhbusYn61HBTexMAbQ7Zf/nF0y', NULL, NULL),
-(9, 'maria', NULL, NULL, '$2y$10$2Wf7CrYmHL4FMf2q7FDxn.iHSJJbCbA.XULM2pB3Nv9zNaum1Gx86', NULL, NULL),
-(10, 'v7', NULL, NULL, '$2y$10$OkRg4ABPSuBYuia2wmNc5u5mrIArvT4gj9MwL9MKg.NdhkTerh.UW', NULL, NULL),
-(11, 'jj', NULL, NULL, '$2y$10$Ghil6684KW0/a29CypCXS.VWjm9k2yhhvplyV/lX9c2ttjnv3bAwi', NULL, NULL),
 (12, 'adm', NULL, NULL, '$2y$10$WOliq.nENLKuymhai17qoOaO3jEUk0CMoqxsvCm11KmJv5s6FWaUW', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -389,7 +386,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de tabela `funcionarios`
 --
 ALTER TABLE `funcionarios`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `jobs`
