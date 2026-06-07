@@ -1,3 +1,4 @@
+<?php require_once "../protege.php"; ?>
 <?php 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     require_once "../conexao.php";

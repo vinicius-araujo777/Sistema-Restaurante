@@ -1,3 +1,4 @@
+<?php require_once "../protege.php"; ?>
 <?php 
 if(isset($_GET['id'])){
     require_once "../conexao.php";
