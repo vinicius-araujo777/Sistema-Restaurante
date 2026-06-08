@@ -11,12 +11,12 @@
 <body class="flex bg-gray-50 min-h-screen">
 
     <!-- Sidebar -->
-    <aside class="w-52 bg-orange-500 min-h-screen fixed top-0 left-0 flex flex-col p-4">
+<aside class="w-52 bg-orange-500 min-h-screen fixed top-0 left-0 flex flex-col p-4 justify-between">
+    <div class="flex flex-col flex-1">
         <div class="pt-2 flex flex-col items-center">
             <img src="/assets/LogoRest2.png" alt="Logo Hambre" class="w-20 h-20 object-contain rounded-xl mb-1">
         </div>
-
-        <nav class="flex flex-col gap-1 mt-6">
+        <nav class="flex flex-col gap-1 mt-6 pt-2 border-t border-white/20">
             <a href="/index.php"
                 class="flex items-center gap-2 text-white/80 hover:text-white hover:bg-white/20 px-3 py-2 rounded-lg text-base transition">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -45,17 +45,18 @@
                 </svg>
                 Mesas
             </a>
-            <div class="mt-96 border-t border-white/20">
-                <a href="/login/logout.php"
-                    class="flex items-center gap-2 text-white/80 hover:text-white hover:bg-white/20 px-3 py-2 rounded-lg text-base transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                    </svg>
-                    Sair
-                </a>
-            </div>
         </nav>
-    </aside>
+    </div>
+    <div class="mt-auto pt-2 border-t border-white/20">
+        <a href="/login/logout.php"
+            class="flex items-center gap-2 text-white/80 hover:text-white hover:bg-white/20 px-3 py-2 rounded-lg text-base transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+            Sair
+        </a>
+    </div>
+</aside>
 
     <!-- Conteúdo -->
     <main class="ml-56 flex-1 p-8">
