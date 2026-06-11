@@ -14,10 +14,10 @@
         <thead>
             <tr class="text-left text-gray-400 border-b border-gray-100">
                 <th class="pb-2 font-medium">#</th>
-                <th class="pb-2 px-3 font-medium">Número</th>
-                <th class="pb-2 px-3 font-medium">Capacidade</th>
-                <th class="pb-2 px-3 font-medium">Status</th>
-                <th class="pb-2 px-3 font-medium">Opções</th>
+                <th class="pb-2 px-2 font-medium">Número</th>
+                <th class="pb-2 px-2 font-medium">Capacidade</th>
+                <th class="pb-2 px-2 font-medium">Status</th>
+                <th class="pb-2 px-2 font-medium">Opções</th>
             </tr>
         </thead>
         <tbody class="divide-y divide-gray-100">
@@ -27,9 +27,9 @@
             foreach($mesas as $m): ?>
             <tr class="hover:bg-gray-50 transition">
                 <td class="py-3 text-gray-400"><?= $m->id ?></td>
-                <td class="py-3 px-3 text-gray-800 font-medium">Mesa <?= $m->numero ?></td>
-                <td class="py-3 px-3 text-gray-600"><?= $m->capacidade ?> pessoas</td>
-                <td class="py-3 px-3">
+                <td class="py-3 text-gray-800 font-medium">Mesa <?= $m->numero ?></td>
+                <td class="py-3 text-gray-600"><?= $m->capacidade ?> pessoas</td>
+                <td class="py-3">
                     <?php if($m->status === 'Disponível'): ?>
                         <span class="bg-green-50 text-green-600 text-xs px-2 py-1 rounded-full">Disponível</span>
                     <?php elseif($m->status === 'Ocupada'): ?>
@@ -38,7 +38,7 @@
                         <span class="bg-yellow-50 text-yellow-600 text-xs px-2 py-1 rounded-full">Reservada</span>
                     <?php endif; ?>
                 </td>
-                <td class="py-3 px-3">
+                <td class="py-3">
                     <div class="flex gap-1">
                         <a href="editar.php?id=<?= $m->id ?>" class="text-orange-500 hover:bg-orange-50 p-1.5 rounded-lg transition">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
