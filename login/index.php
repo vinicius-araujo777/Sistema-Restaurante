@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <form action="" method="post" class="space-y-4">
                 <div>
                     <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Nome</label>
-                    <input type="text" name="nome" placeholder="seu nome" required
+                    <input type="text" name="nome" placeholder="Seu nome" required
                         class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-800 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition">
                 </div>
                 <div>

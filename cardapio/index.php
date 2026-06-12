@@ -12,12 +12,12 @@
     <table class="w-full text-sm">
         <thead>
             <tr class="text-left text-gray-400 border-b border-gray-100">
-                <th class="pb-2 font-medium">#</th>
-                <th class="pb-2 px-2 font-medium">Nome</th>
-                <th class="pb-2 px-2 font-medium">Descrição</th>
-                <th class="pb-2 px-2 font-medium">Categoria</th>
-                <th class="pb-2 px-2 font-medium">Preço</th>
-                <th class="pb-2 px-2 font-medium">Opções</th>
+                <th class="pb-2 px-2 font-medium">#</th>
+                <th class="pb-2 px-6 font-medium">Nome</th>
+                <th class="pb-2 px-10 font-medium">Descrição</th>
+                <th class="pb-2 px-5 font-medium">Categoria</th>
+                <th class="pb-2 px-4 font-medium">Preço</th>
+                <th class="pb-2 px-4 font-medium">Opções</th>
             </tr>
         </thead>
         <tbody class="divide-y divide-gray-100">
@@ -26,14 +26,14 @@
             $pratos = listarPratos($con);
             foreach ($pratos as $prato): ?>
                 <tr>
-                    <td class="py-3 text-gray-400"><?= $prato->id ?></td>
-                    <td class="py-3 text-gray-800 font-medium"><?= htmlspecialchars($prato->nome) ?></td>
-                    <td class="py-3 text-gray-500"><?= htmlspecialchars($prato->descricao) ?></td>
-                    <td class="py-3">
+                    <td class="py-3 px-2 text-gray-400"><?= $prato->id ?></td>
+                    <td class="py-3 px-2 text-gray-800 font-medium"><?= htmlspecialchars($prato->nome) ?></td>
+                    <td class="py-3 px-2 text-gray-500"><?= htmlspecialchars($prato->descricao) ?></td>
+                    <td class="py-3 px-2">
                         <span class="bg-orange-50 text-orange-600 text-xs px-2 py-1 rounded-full"><?= htmlspecialchars($prato->categoria) ?></span>
                     </td>
-                    <td class="py-3 text-gray-800 font-medium">R$ <?= number_format($prato->preco, 2, ',', '.') ?></td>
-                    <td class="py-3">
+                    <td class="py-3 px-2 text-gray-800 font-medium">R$ <?= number_format($prato->preco, 2, ',', '.') ?></td>
+                    <td class="py-3 px-2">
                         <div class="flex gap-1">
                             <a href="editar.php?id=<?= $prato->id ?>" class="text-orange-500 hover:bg-orange-50 p-1.5 rounded-lg transition">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

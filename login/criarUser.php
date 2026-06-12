@@ -21,13 +21,22 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $erro = "Código de acesso inválido.";
     }
     else {
-        if(criarConta($con, $nome, $email, $telefone, $senha)) {
-            $sucesso = "Conta criada com sucesso!";
-        } else {
-            $erro = "Erro ao criar conta. Tente novamente.";
+        $stmt = $con->prepare("SELECT * FROM registros WHERE nome = :nome");
+        $stmt->bindValue(":nome", $nome);
+        $stmt->execute();
+
+        if($stmt->fetch()){
+            $erro = "Nome ja existente, tente novamente!";
+        }
+        else{
+            if(criarConta($con, $nome, $email, $telefone, $senha)) {
+                $sucesso = "Conta criada com sucesso!";
+            }
+            else {
+                $erro = "Erro ao criar conta. Tente novamente.";
+            }
         }
     }
-    
 }
 ?>
 
@@ -68,12 +77,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div>
                     <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Nome</label>
-                    <input type="text" name="nome" placeholder="seu nome" required
+                    <input type="text" name="nome" placeholder="Seu nome" required
                         class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-800 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition">
                 </div>
                 <div>
                     <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Email</label>
-                    <input type="email" name="email" placeholder="seu@email.com (opcional)"
+                    <input type="email" name="email" placeholder="Seu@email.com (opcional)"
                         class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-800 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition">
                 </div>
                 <div>

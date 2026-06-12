@@ -6,11 +6,21 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $numero = $_POST['numero'];
     $capacidade = $_POST['capacidade'];
 
-    if(adicionarMesa($con,$numero,$capacidade)){
-        header("location:index.php");
-        exit;
-    } else{
-        echo "Erro ao adicionar mesa";
+    $stmt = $con->prepare("SELECT * FROM mesas WHERE numero = :numero");
+    $stmt->bindValue(":numero", $numero);
+    $stmt->execute();
+
+    if($stmt->fetch()){
+        $erro = "Número de mesa ja existente, tente novamente!";
+    }
+    else{
+        if(adicionarMesa($con,$numero,$capacidade)){
+            header("location:index.php");
+            exit;
+        } 
+        else{
+            echo "Erro ao adicionar mesa";
+        }
     }
 }
 ?>
@@ -25,6 +35,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 <div class="flex justify-center">
     <div class="bg-white rounded-xl border border-gray-200 p-8 max-w-3xl w-full shadow-sm">
+
+        <?php if (!empty($erro)): ?>
+            <div class="bg-red-50 border border-red-200 text-red-500 text-sm px-4 py-3 rounded-lg mb-5"><?= $erro ?></div>
+        <?php endif; ?>
+
         <form action="" method="post" class="space-y-6">
             <div>
                 <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Número da mesa</label>

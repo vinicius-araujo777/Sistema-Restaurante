@@ -12,11 +12,11 @@
     <table class="w-full text-sm">
         <thead>
             <tr class="text-left text-gray-400 border-b border-gray-100">
-                <th class="pb-2 font-medium">#</th>
+                <th class="pb-2 px-2 font-medium">#</th>
                 <th class="pb-2 px-2 font-medium">Nome</th>
-                <th class="pb-2 px-2 font-medium">Cargo</th>
-                <th class="pb-2 px-2 font-medium">Salario</th>
-                <th class="pb-2 px-2 font-medium">Opções</th>
+                <th class="pb-2 px-4 font-medium">Cargo</th>
+                <th class="pb-2 px-5 font-medium">Salário</th>
+                <th class="pb-2 px-4 font-medium">Opções</th>
             </tr>
         </thead>
         <tbody class="divide-y divide-gray-100">
@@ -25,11 +25,11 @@
             $funcionarios = listarFuncionarios($con);
             foreach($funcionarios as $f):?>
             <tr>
-                <td class="py-3 text-gray-400"> <?php echo $f->id ?></td>
-                <td class="py-3 text-gray-800 font-medium"><?php echo $f->nome ?></td>
-                <td class="py-3 text-gray-600"><?php echo $f->cargo ?></td>
-                <td class="py-3 text-gray-800 font-medium">R$ <?php echo number_format($f->salario, 2, ',', '.') ?></td>
-                <td class="py-3">
+                <td class="py-3 px-2 text-gray-400"> <?php echo $f->id ?></td>
+                <td class="py-3 px-2 text-gray-800 font-medium"><?php echo $f->nome ?></td>
+                <td class="py-3 px-2 text-gray-600"><?php echo $f->cargo ?></td>
+                <td class="py-3 px-2 text-gray-800 font-medium">R$ <?php echo number_format($f->salario, 2, ',', '.') ?></td>
+                <td class="py-3 px-2">
                     <div class="flex gap-1">
                         <a href="editar.php?id=<?=  $f->id ?> " class="text-orange-500 hover:bg-orange-50 p-1.5 rounded-lg transition"> 
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

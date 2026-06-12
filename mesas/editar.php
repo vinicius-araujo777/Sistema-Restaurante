@@ -18,12 +18,29 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $numero = $_POST['numero'];
     $capacidade = $_POST['capacidade'];
     $status = $_POST['status'];
-    if(atualizarMesa($con,$id,$numero,$capacidade,$status)){
-        header("location:index.php");
-        exit();
-    }else{
-        echo "Erro ao atualizar mesa.";
-        exit();
+
+    if($numero < 1) {
+        $erro = "O número da mesa deve ser maior que zero.";
+    }
+    else{
+        $stmt = $con->prepare("SELECT * FROM mesas WHERE numero = :numero AND id != :id");
+        $stmt->bindValue(":numero", $numero);
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
+
+        if($stmt->fetch()){
+            $erro = "Número de mesa ja existente, tente novamente!";
+        }
+        else{
+            if(atualizarMesa($con,$id,$numero,$capacidade,$status)){
+                header("location:index.php");
+                exit();
+            }
+            else{
+                echo "Erro ao atualizar mesa.";
+                exit();
+            }
+        }
     }
 }
 
@@ -40,16 +57,19 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 <div class="flex justify-center">
     <div class="bg-white rounded-xl border border-gray-200 p-8 max-w-3xl w-full shadow-sm">
+        <?php if (!empty($erro)): ?>
+            <div class="bg-red-50 border border-red-200 text-red-500 text-sm px-4 py-3 rounded-lg mb-5"><?= $erro ?></div>
+        <?php endif; ?>
         <form action="" method="post" class="space-y-6">
             <div>
-                <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Nome da mesa</label>
-                <input type="text" name="numero" value="<?= htmlspecialchars($mesa->numero) ?>" required
+                <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Número da mesa</label>
+                <input type="number" name="numero" min="1" value="<?= htmlspecialchars($mesa->numero) ?>" required
                 class="w-full border border-gray-200 rounded-lg px-3 py-3 text-sm text-gray-800 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition">
             </div>
 
             <div>
                 <label  class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Capacidade da mesa</label>
-                <input type="text" name="capacidade" value="<?= htmlspecialchars($mesa->capacidade) ?>" required
+                <input type="number" name="capacidade" value="<?= htmlspecialchars($mesa->capacidade) ?>" required
                 class="w-full border border-gray-200 rounded-lg px-3 py-3 text-sm text-gray-800 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition">
             </div>
 
